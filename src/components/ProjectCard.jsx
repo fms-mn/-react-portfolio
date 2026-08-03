@@ -1,0 +1,5 @@
+import { ExternalLink, Github } from 'lucide-react'
+
+export default function ProjectCard({ project }) {
+  return <article className="card overflow-hidden">{project.image && <img src={project.image} alt="" loading="lazy" className="aspect-video w-full object-cover" />}<div className="p-6"><h3 className="text-xl font-bold">{project.title}</h3><p className="mt-3 text-slate-600 dark:text-slate-300">{project.description}</p><ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies">{project.technologies?.map((tech) => <li key={tech} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-electric dark:bg-blue-950 dark:text-cyan-300">{tech}</li>)}</ul><div className="mt-6 flex gap-4">{project.github && <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-semibold"><Github size={17} />Code</a>}{project.liveDemo && <a href={project.liveDemo} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-semibold"><ExternalLink size={17} />Live demo</a>}</div></div></article>
+}
