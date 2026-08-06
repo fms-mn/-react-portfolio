@@ -1,24 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  * { @apply border-slate-200 dark:border-slate-700; }
-  html { scroll-padding-top: 5.5rem; }
-  body { @apply bg-slate-50 text-ink antialiased transition-colors duration-300 dark:bg-midnight dark:text-slate-100; }
-  ::selection { @apply bg-cyan-200 text-ink dark:bg-cyan-700 dark:text-white; }
-  :focus-visible { @apply outline-none ring-2 ring-electric ring-offset-2 ring-offset-slate-50 dark:ring-cyan-400 dark:ring-offset-midnight; }
+  * { @apply border-ink/20 dark:border-white/20; }
+  html { scroll-padding-top: 6rem; }
+  body {
+    @apply bg-[#f3f0e8] text-ink antialiased transition-colors duration-300 dark:bg-midnight dark:text-[#f3f0e8];
+    background-image: linear-gradient(rgba(23,33,38,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(23,33,38,.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .dark body { background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); }
+  ::selection { @apply bg-cyanbright text-ink; }
+  :focus-visible { @apply outline-none ring-2 ring-electric ring-offset-2 ring-offset-[#f3f0e8] dark:ring-cyanbright dark:ring-offset-midnight; }
 }
 
 @layer components {
-  .container-shell { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
-  .section-pad { @apply py-20 sm:py-24 lg:py-28; }
-  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-electric px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:-translate-y-0.5 hover:bg-blue-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400; }
-  .btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-xl border bg-white px-5 py-3 text-sm font-semibold text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 dark:bg-panel dark:text-white dark:hover:border-cyan-500; }
-  .card { @apply rounded-3xl border bg-white shadow-soft transition-colors dark:bg-panel; }
-  .field { @apply mt-2 w-full rounded-xl border bg-white px-4 py-3 text-sm text-ink placeholder:text-slate-400 transition focus:border-electric focus:outline-none focus:ring-4 focus:ring-blue-100 dark:bg-slate-900/60 dark:text-white dark:focus:border-cyan-400 dark:focus:ring-cyan-950; }
+  .container-shell { @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12; }
+  .section-pad { @apply py-20 sm:py-28 lg:py-36; }
+  .eyebrow { @apply font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-electric dark:text-cyanbright; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 border-2 border-ink bg-cyanbright px-5 py-3 font-mono text-xs font-bold uppercase tracking-wider text-ink shadow-[5px_5px_0_#172126] transition hover:translate-x-1 hover:translate-y-1 hover:shadow-none dark:border-[#f3f0e8] dark:shadow-[5px_5px_0_#f3f0e8]; }
+  .btn-secondary { @apply inline-flex items-center justify-center gap-2 border-2 border-ink bg-transparent px-5 py-3 font-mono text-xs font-bold uppercase tracking-wider text-ink transition hover:bg-ink hover:text-white dark:border-[#f3f0e8] dark:text-[#f3f0e8] dark:hover:bg-[#f3f0e8] dark:hover:text-ink; }
+  .card { @apply border-2 border-ink bg-[#f8f6f0] dark:border-[#f3f0e8] dark:bg-panel; }
+  .field { @apply mt-2 w-full border-b-2 border-ink bg-transparent px-0 py-3 text-sm text-ink placeholder:text-ink/40 transition focus:border-electric focus:outline-none dark:border-white/50 dark:text-white dark:placeholder:text-white/35 dark:focus:border-cyanbright; }
+  .rule-label { @apply flex items-center gap-3 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/50 dark:text-white/50; }
+  .rule-label::after { content: ''; @apply h-px flex-1 bg-ink/20 dark:bg-white/20; }
 }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 24s linear infinite; }
+.portrait-mask { clip-path: polygon(0 0, 100% 0, 100% 90%, 86% 100%, 0 100%); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
