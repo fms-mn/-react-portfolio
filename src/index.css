@@ -1,31 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  * { @apply border-ink/20 dark:border-white/20; }
+  * { @apply border-ink/15 dark:border-white/15; }
   html { scroll-padding-top: 6rem; }
   body {
-    @apply bg-[#f3f0e8] text-ink antialiased transition-colors duration-300 dark:bg-midnight dark:text-[#f3f0e8];
-    background-image: linear-gradient(rgba(23,33,38,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(23,33,38,.04) 1px, transparent 1px);
-    background-size: 32px 32px;
+    @apply bg-[#f7f6f2] text-ink antialiased transition-colors duration-300 dark:bg-midnight dark:text-[#f0eff8];
   }
-  .dark body { background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); }
   ::selection { @apply bg-cyanbright text-ink; }
-  :focus-visible { @apply outline-none ring-2 ring-electric ring-offset-2 ring-offset-[#f3f0e8] dark:ring-cyanbright dark:ring-offset-midnight; }
+  :focus-visible { @apply outline-none ring-2 ring-electric ring-offset-2 ring-offset-[#f7f6f2] dark:ring-cyanbright dark:ring-offset-midnight; }
 }
 
 @layer components {
   .container-shell { @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12; }
   .section-pad { @apply py-20 sm:py-28 lg:py-36; }
-  .eyebrow { @apply font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-electric dark:text-cyanbright; }
-  .btn-primary { @apply inline-flex items-center justify-center gap-2 border-2 border-ink bg-cyanbright px-5 py-3 font-mono text-xs font-bold uppercase tracking-wider text-ink shadow-[5px_5px_0_#172126] transition hover:translate-x-1 hover:translate-y-1 hover:shadow-none dark:border-[#f3f0e8] dark:shadow-[5px_5px_0_#f3f0e8]; }
-  .btn-secondary { @apply inline-flex items-center justify-center gap-2 border-2 border-ink bg-transparent px-5 py-3 font-mono text-xs font-bold uppercase tracking-wider text-ink transition hover:bg-ink hover:text-white dark:border-[#f3f0e8] dark:text-[#f3f0e8] dark:hover:bg-[#f3f0e8] dark:hover:text-ink; }
-  .card { @apply border-2 border-ink bg-[#f8f6f0] dark:border-[#f3f0e8] dark:bg-panel; }
-  .field { @apply mt-2 w-full border-b-2 border-ink bg-transparent px-0 py-3 text-sm text-ink placeholder:text-ink/40 transition focus:border-electric focus:outline-none dark:border-white/50 dark:text-white dark:placeholder:text-white/35 dark:focus:border-cyanbright; }
-  .rule-label { @apply flex items-center gap-3 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-ink/50 dark:text-white/50; }
-  .rule-label::after { content: ''; @apply h-px flex-1 bg-ink/20 dark:bg-white/20; }
+  .eyebrow { @apply font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-electric dark:text-cyanbright; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 border border-ink bg-electric px-5 py-3 text-sm font-semibold text-white shadow-[4px_4px_0_#1a1a2e] transition hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_#1a1a2e] dark:border-cyanbright dark:bg-electric dark:shadow-[4px_4px_0_#bfdbfe] dark:hover:shadow-[2px_2px_0_#bfdbfe]; }
+  .btn-secondary { @apply inline-flex items-center justify-center gap-2 border border-ink bg-transparent px-5 py-3 text-sm font-semibold text-ink transition hover:bg-ink hover:text-white dark:border-[#f0eff8] dark:text-[#f0eff8] dark:hover:bg-[#f0eff8] dark:hover:text-ink; }
+  .card { @apply border border-ink/20 bg-white dark:border-white/15 dark:bg-panel; }
+  .field { @apply mt-2 w-full border-b border-ink/30 bg-transparent px-0 py-3 text-sm text-ink placeholder:text-ink/35 transition focus:border-electric focus:outline-none dark:border-white/30 dark:text-white dark:placeholder:text-white/35 dark:focus:border-cyanbright; }
+  .rule-label { @apply flex items-center gap-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40 dark:text-white/40; }
+  .rule-label::after { content: ''; @apply h-px flex-1 bg-ink/15 dark:bg-white/15; }
+}
+
+/* ── Autofill override ── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 9999px #fff inset !important;
+  box-shadow: 0 0 0 9999px #fff inset !important;
+  -webkit-text-fill-color: #1a1a2e !important;
+  caret-color: #1a1a2e;
 }
 
 @keyframes marquee { to { transform: translateX(-50%); } }

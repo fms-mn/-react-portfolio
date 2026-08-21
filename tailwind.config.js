@@ -5,20 +5,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#172126',
-        midnight: '#0d1518',
-        panel: '#162126',
-        electric: '#e85d3f',
-        cyanbright: '#8edfd0',
-        coral: '#e85d3f',
+        ink: '#1a1a2e',
+        midnight: '#0f0f1a',
+        panel: '#161625',
+        electric: '#2563eb',
+        cyanbright: '#bfdbfe',
+        coral: '#3b82f6',
       },
       fontFamily: {
-        sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         display: ['Syne', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['Space Mono', 'ui-monospace', 'monospace'],
       },
       boxShadow: {
-        soft: '8px 8px 0 0 rgba(23, 33, 38, 1)',
+        soft: '6px 6px 0 0 rgba(26, 26, 46, 0.8)',
       },
     },
   },
