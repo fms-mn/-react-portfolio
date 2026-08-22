@@ -1,4 +1,4 @@
-import { Award, BadgeCheck, ExternalLink, FileText } from 'lucide-react'
+import { ArrowUpRight, Award, BadgeCheck, ExternalLink, FileText } from 'lucide-react'
 import SectionTitle from './SectionTitle'
 
 const certifications = [
@@ -10,6 +10,7 @@ const certifications = [
     credentialId: '9BPF9CH411O9',
     credentialUrl: 'https://coursera.org/verify/9BPF9CH411O9',
     pdfUrl: 'certificates/mastering-claude-code.pdf',
+    number: '01',
   },
   {
     title: 'Generative AI: Prompt Engineering Basics',
@@ -19,32 +20,67 @@ const certifications = [
     credentialId: 'AQPN4PX2E0TN',
     credentialUrl: 'https://coursera.org/verify/AQPN4PX2E0TN',
     pdfUrl: 'certificates/generative-ai-prompt-engineering.pdf',
+    number: '02',
   },
 ]
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="section-pad border-b-2 border-ink bg-[#dfe9e5] dark:border-white/60 dark:bg-[#132025]">
-      <div className="container-shell">
-        <div className="grid gap-8 lg:grid-cols-[1fr_.65fr] lg:items-end">
-          <SectionTitle eyebrow="03 / Credentials" title="Certifications & learning" description="Verified coursework in AI-assisted development, prompt engineering, and practical software workflows." />
-          <div className="flex items-center gap-4 border-l-2 border-electric pl-5 lg:justify-self-end"><Award className="text-electric dark:text-cyanbright" size={30} /><div><p className="font-display text-lg font-bold uppercase">Verified record</p><p className="mt-1 text-xs text-ink/55 dark:text-white/55">Coursera credentials · 2026</p></div></div>
-        </div>
-
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          {certifications.map(({ title, issuer, platform, date, credentialId, credentialUrl, pdfUrl }, index) => (
-            <article key={credentialId} className="group relative flex min-h-80 flex-col overflow-hidden border-2 border-ink/70 bg-[#f6f3eb] p-6 transition duration-300 hover:-translate-y-1 hover:border-ink hover:shadow-[6px_6px_0_#172126] dark:border-white/45 dark:bg-panel dark:hover:border-cyanbright dark:hover:shadow-[6px_6px_0_#8edfd0] sm:p-7">
-              <div className="absolute right-0 top-0 grid size-20 place-items-center bg-cyanbright text-ink [clip-path:polygon(28%_0,100%_0,100%_100%,0_100%,0_28%)]"><Award size={27} /></div>
-              <div className="flex items-center gap-2 font-mono text-[8px] font-bold uppercase tracking-[.18em] text-electric dark:text-cyanbright"><BadgeCheck size={14} /> Verified certificate</div>
-              <p className="mt-8 font-mono text-[9px] font-bold uppercase tracking-[.16em] text-ink/45 dark:text-white/45">0{index + 1} / {platform}</p>
-              <h3 className="mt-3 max-w-[85%] font-display text-2xl font-extrabold uppercase leading-[1.05] sm:text-3xl">{title}</h3>
-              <div className="mt-auto pt-8">
-                <div className="grid gap-3 border-y border-ink/20 py-4 text-xs dark:border-white/20 sm:grid-cols-2"><p><span className="font-mono text-[8px] font-bold uppercase tracking-wider text-ink/45 dark:text-white/45">Issuer</span><br/><span className="mt-1 inline-block font-semibold">{issuer}</span></p><p><span className="font-mono text-[8px] font-bold uppercase tracking-wider text-ink/45 dark:text-white/45">Completed</span><br/><span className="mt-1 inline-block font-semibold">{date}</span></p></div>
-                <p className="mt-4 font-mono text-[8px] font-bold uppercase tracking-[.12em] text-ink/45 dark:text-white/45">Credential ID · {credentialId}</p>
-                <div className="mt-5 flex flex-wrap gap-3"><a href={`${import.meta.env.BASE_URL}${pdfUrl}`} target="_blank" rel="noreferrer" className="btn-primary !px-4 !py-2.5">View certificate <FileText size={14} /></a><a href={credentialUrl} target="_blank" rel="noreferrer" className="btn-secondary !px-4 !py-2.5">Verify online <ExternalLink size={14} /></a></div>
+    <section id="certifications" className="relative overflow-hidden bg-[#e7ffad] text-slate-950 dark:bg-[#18210f] dark:text-white">
+      <div className="absolute -right-20 top-1/2 size-80 -translate-y-1/2 rounded-full border-[40px] border-brand/10" />
+      <div className="container-shell section-pad relative">
+        <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-16">
+          <div className="lg:sticky lg:top-28">
+            <SectionTitle
+              eyebrow="Credentials"
+              title={<>Always learning.<br /><span className="text-brand dark:text-acid">Always building.</span></>}
+              description="Verified coursework that strengthens how I approach AI-assisted development and modern software workflows."
+            />
+            <div className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-slate-950 px-4 py-3 text-white shadow-xl dark:bg-acid dark:text-slate-950">
+              <BadgeCheck size={20} />
+              <div>
+                <p className="text-xs font-bold">Verified credentials</p>
+                <p className="text-[0.65rem] opacity-60">Coursera · 2026</p>
               </div>
-            </article>
-          ))}
+            </div>
+          </div>
+
+          <div className="space-y-5">
+            {certifications.map(({ title, issuer, platform, date, credentialId, credentialUrl, pdfUrl, number }) => (
+              <article key={credentialId} className="group relative overflow-hidden rounded-[1.5rem] border border-slate-950/10 bg-white/85 p-6 shadow-[0_18px_60px_rgba(45,55,20,0.10)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_26px_70px_rgba(45,55,20,0.16)] dark:border-white/10 dark:bg-white/[0.06] sm:p-8">
+                <span className="absolute -right-3 -top-9 font-display text-[7rem] font-extrabold leading-none text-slate-950/[0.045] dark:text-white/[0.04]">{number}</span>
+                <div className="relative flex items-start gap-5">
+                  <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-brand text-white shadow-[0_10px_25px_rgba(77,92,255,0.3)]">
+                    <Award size={23} />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="font-mono text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand dark:text-indigo-300">{platform} · Certificate {number}</p>
+                    <h3 className="mt-3 max-w-xl font-display text-xl font-extrabold leading-snug tracking-[-0.025em] sm:text-2xl">{title}</h3>
+                  </div>
+                </div>
+
+                <div className="relative mt-7 grid gap-5 border-t border-slate-950/10 pt-5 sm:grid-cols-3 dark:border-white/10">
+                  <div><p className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-slate-400">Issuer</p><p className="mt-1 text-sm font-bold">{issuer}</p></div>
+                  <div><p className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-slate-400">Completed</p><p className="mt-1 text-sm font-bold">{date}</p></div>
+                  <div><p className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-slate-400">Credential ID</p><p className="mt-1 truncate font-mono text-xs font-bold">{credentialId}</p></div>
+                </div>
+
+                <div className="relative mt-6 flex flex-wrap gap-3">
+                  <a href={`${import.meta.env.BASE_URL}${pdfUrl}`} target="_blank" rel="noreferrer" className="btn-primary">
+                    Certificate <FileText size={15} />
+                  </a>
+                  <a href={credentialUrl} target="_blank" rel="noreferrer" className="btn-secondary !border-slate-950/15 !bg-transparent !text-slate-800 hover:!border-brand hover:!text-brand dark:!border-white/15 dark:!text-white">
+                    Verify online <ExternalLink size={15} />
+                  </a>
+                </div>
+              </article>
+            ))}
+
+            <a href="#contact" className="group flex items-center justify-between rounded-2xl border border-slate-950/10 bg-slate-950 p-5 text-white transition hover:bg-brand dark:border-white/10 dark:bg-white dark:text-slate-950 dark:hover:bg-acid sm:p-6">
+              <div><p className="font-display text-lg font-bold">Want to build something together?</p><p className="mt-1 text-sm opacity-60">I&apos;m ready for the next challenge.</p></div>
+              <ArrowUpRight className="transition group-hover:rotate-45" size={22} />
+            </a>
+          </div>
         </div>
       </div>
     </section>
