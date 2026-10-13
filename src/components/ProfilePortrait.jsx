@@ -18,7 +18,7 @@ export default function ProfilePortrait() {
         height="1254"
         loading="eager"
         fetchPriority="high"
-        className="relative h-full w-full object-contain object-bottom"
+        className="relative h-full w-full object-contain object-[50%_25%]"
         initial={reduce ? false : { opacity: 0, scale: 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
