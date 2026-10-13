@@ -1,8 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion'
 
 const profile = {
-  image: 'profile-portrait.png?v=3',
-  alt: 'Benedict Tanghal facing forward in professional attire',
+  image: 'profile-portrait.webp?v=4',
+  alt: 'Benedict Tanghal in a white shirt and black tie',
 }
 
 export default function ProfilePortrait() {
