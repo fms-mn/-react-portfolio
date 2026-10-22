@@ -22,6 +22,25 @@ const certifications = [
     pdfUrl: 'certificates/generative-ai-prompt-engineering.pdf',
     number: '02',
   },
+  {
+    title: 'Introduction to Cybersecurity',
+    issuer: 'Cisco Networking Academy',
+    platform: 'Cisco Networking Academy',
+    date: 'August 25, 2026',
+    credentialId: '564c1846-859a-4d24-b7fb-0426ca67cbf5',
+    pdfUrl: 'certificates/introduction-to-cybersecurity.pdf',
+    number: '03',
+  },
+  {
+    title: 'Elements of AI',
+    issuer: 'University of Helsinki & MinnaLearn',
+    platform: 'MinnaLearn',
+    date: 'October 10, 2026',
+    credentialId: 'yg4ythx1oud',
+    credentialUrl: 'https://certificates.mooc.fi/validate/yg4ythx1oud',
+    pdfUrl: 'certificates/elements-of-ai.webp',
+    number: '04',
+  },
 ]
 
 export default function Certifications() {
@@ -40,7 +59,7 @@ export default function Certifications() {
               <BadgeCheck size={20} />
               <div>
                 <p className="text-xs font-bold">Verified credentials</p>
-                <p className="text-[0.65rem] opacity-60">Coursera · 2026</p>
+                <p className="text-[0.65rem] opacity-60">Coursera · Cisco · Helsinki · 2026</p>
               </div>
             </div>
           </div>
@@ -69,9 +88,11 @@ export default function Certifications() {
                   <a href={`${import.meta.env.BASE_URL}${pdfUrl}`} target="_blank" rel="noreferrer" className="btn-primary">
                     Certificate <FileText size={15} />
                   </a>
-                  <a href={credentialUrl} target="_blank" rel="noreferrer" className="btn-secondary !border-slate-950/15 !bg-transparent !text-slate-800 hover:!border-brand hover:!text-brand dark:!border-white/15 dark:!text-white">
-                    Verify online <ExternalLink size={15} />
-                  </a>
+                  {credentialUrl && (
+                    <a href={credentialUrl} target="_blank" rel="noreferrer" className="btn-secondary !border-slate-950/15 !bg-transparent !text-slate-800 hover:!border-brand hover:!text-brand dark:!border-white/15 dark:!text-white">
+                      Verify online <ExternalLink size={15} />
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
